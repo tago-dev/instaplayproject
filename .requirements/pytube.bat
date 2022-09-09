@@ -1,4 +1,2 @@
 @echo off
-cd..
-pip install pytube
-echo. && pause
+echo. && pip install pytube
