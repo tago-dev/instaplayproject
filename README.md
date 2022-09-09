@@ -1,1 +1,1 @@
-WARNING: Before using the script, create a folder with the exact name "Downloads" in the same directory where the script was downloaded.
+[Coming soon] The script is being made to download videos, music, playlists and also capture channel data, such as the video thumbnail and more.
