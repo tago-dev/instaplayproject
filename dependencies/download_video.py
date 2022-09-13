@@ -5,7 +5,8 @@ from shutil import rmtree
 
 
 def start():
-    cmd('cls && echo.')
+    cmd('cls')
+    print()
     resolutions = {
         1: '1080p',
         2: '720p',
@@ -18,13 +19,13 @@ def start():
     print('Resolutions: ' + '   '.join([f'{k}. {v}' for k, v in resolutions.items()]))
     video_quality = int(input('Number: '))
     video_quality = resolutions[video_quality]
-
     print()
+
     print('Examples: "https://www.youtube.com/watch?v=xXxXxXxXxXx" "https://youtu.be/xXxXxXxXxXx"')
-    url = input('YouTube Video URL: ')
+    url = input('YouTube - Video URL: ')
     yt = YouTube(url)
-
     print()
+
     print('Downloading Video...')
     makedirs('.temp', exist_ok=True)
     yt.streams.filter(res=video_quality).first().download(output_path='.temp', filename='temp_video.mp4')
@@ -49,7 +50,6 @@ def start():
     input_video = ffmpeg.input(temp_video)
     input_audio = ffmpeg.input(temp_audio)
     ffmpeg.output(input_video, input_audio, output, acodec='copy', vcodec='copy').run(quiet=True)
-
     print('Merge Complete!')
     print()
 
