@@ -148,6 +148,8 @@ cython_debug/
 .idea/
 
 #Other
-!/Downloaded Musics/
-!/Downloaded Playlists/
-!/Downloaded Videos/
+.temp/
+Downloaded Musics/
+Downloaded Playlists/
+Downloaded Videos/
+Video & Channel Info/
