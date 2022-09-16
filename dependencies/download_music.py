@@ -1,4 +1,5 @@
 from os import system as cmd, makedirs
+import os
 from pytube import YouTube
 
 
@@ -11,16 +12,18 @@ def start():
     print()
 
     print('Downloading Audio...')
-    yt.streams.filter(only_audio=True).first().download(output_path='Downloaded Musics', filename='temp_audio.mp3')
+    makedirs('Musics', exist_ok=True)
+    yt.streams.filter(only_audio=True).first().download(output_path='Musics', filename='temp_audio.mp3')
     print('Download Complete!')
     print()
 
     print('Renaming the file...')
     video_title_mp3 = yt.title + '.mp3'
+
     for ch in '<>:"/\\|?*':
         video_title_mp3 = video_title_mp3.replace(ch, '')
 
-    cmd(f'ren "Downloaded Musics\\temp_audio.mp3" "{video_title_mp3}" >nul 2>&1')
+    os.rename('Musics\\temp_audio.mp3', f'Musics\\{video_title_mp3}')
     print('Rename Complete!')
     print()
 
