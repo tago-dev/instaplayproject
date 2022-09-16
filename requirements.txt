@@ -1,3 +1,4 @@
 ffmpeg-python
 pytest-shutil
 pytube
+zstd
