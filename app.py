@@ -1,4 +1,4 @@
-from dependencies import download_video, download_music, download_playlist
+from dependencies import download_video, download_music
 from os import system as cmd
 
 continue_or_exit = None
@@ -8,7 +8,6 @@ while continue_or_exit != '1':
     options = {
         1: download_video.start,
         2: download_music.start,
-        3: download_playlist,
     }
 
     print()
@@ -16,8 +15,7 @@ while continue_or_exit != '1':
     print()
 
     print('1. Video\n'
-          '2. Music\n'
-          '3. Playlist (Coming soon)\n')
+          '2. Music\n')
     option = int(input('Option: '))
     options[option]()
 
