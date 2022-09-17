@@ -1,22 +1,24 @@
 from dependencies import download_video, download_music, download_playlist
+from os import system as cmd
 
+continue_or_exit = None
+while continue_or_exit != '1':
+    cmd('cls')
 
-app_title = '$ App: Universal YT Downloader'
+    options = {
+        1: download_video.start,
+        2: download_music.start,
+        3: download_playlist,
+    }
 
-# makedirs('Downloaded Playlists', exist_ok=True)
+    print()
+    print('$ App: Universal YT Downloader')
+    print()
 
-options = {
-    1: download_video.start,
-    2: download_music.start,
-    3: download_playlist,
-}
+    print('1. Video\n'
+          '2. Music\n'
+          '3. Playlist\n')
+    option = int(input('Option: '))
+    options[option]()
 
-print()
-print(app_title)
-print()
-
-print('1. Video\n'
-      '2. Music\n'
-      '3. Playlist (Coming Soon)\n')
-option = int(input('Number: '))
-options[option]()
+    continue_or_exit = input('[X] Press 1 to exit or any other key to continue ')
