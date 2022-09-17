@@ -1,6 +1,8 @@
+from dependencies.functions import format_title
 from os import system as cmd, makedirs
 import os
 from pytube import YouTube
+from pytube.cli import on_progress
 
 
 def start():
@@ -8,26 +10,18 @@ def start():
     print()
     print('Examples: "https://www.youtube.com/watch?v=xXxXxXxXxXx" "https://youtu.be/xXxXxXxXxXx"')
     url = input('YouTube - Music URL: ')
-    yt = YouTube(url)
+    yt = YouTube(url, on_progress_callback=on_progress)
     print()
 
-    print('Downloading Audio...')
+    # Downloading Audio...
     makedirs('Musics', exist_ok=True)
     yt.streams.filter(only_audio=True).first().download(output_path='Musics', filename='temp_audio.mp3')
-    print('Download Complete!')
+    print('[~] Audio Download Progress: ')
     print()
 
-    print('Renaming the file...')
-    video_title_mp3 = yt.title + '.mp3'
-
-    for ch in '<>:"/\\|?*':
-        video_title_mp3 = video_title_mp3.replace(ch, '')
-
+    # Renaming the file...
+    video_title_mp3 = format_title(yt.title) + '.mp3'
     os.rename('Musics\\temp_audio.mp3', f'Musics\\{video_title_mp3}')
-    print('Rename Complete!')
-    print()
 
-    print('The music was downloaded successfully!')
+    print('[O] The music was downloaded successfully!')
     print()
-
-    exit = input('Press Enter to exit...')
