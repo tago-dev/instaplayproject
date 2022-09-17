@@ -16,7 +16,7 @@ def start():
     # Downloading Audio...
     makedirs('Musics', exist_ok=True)
     yt.streams.filter(only_audio=True).first().download(output_path='Musics', filename='temp_audio.mp3')
-    print('[~] Audio Download Progress: ')
+    print('[~] Audio Download Progress: |')
     print()
 
     # Renaming the file...
