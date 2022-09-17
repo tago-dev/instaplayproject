@@ -36,7 +36,7 @@ def start():
     # Downloading FFMPEG...
     ffmpeg_exe_zst = pathlib.Path(r'dependencies\ffmpeg.exe.zst')
     if not ffmpeg_exe_zst.is_file():
-        print('[!] WARNING: The FFMPEG file will be downloaded ONLY the FIRST TIME you run this script! (Like now)')
+        print('[!] WARNING: The FFMPEG file will be downloaded ONLY the FIRST TIME you run this script! (Like now, please wait...)')
         ffmpeg_url = 'https://drive.google.com/uc?export=download&id=16Ob9qv7uwLWqcMOwTOKeC9p52accn-wO'
         r = requests.get(ffmpeg_url, allow_redirects=True)
         open(r'dependencies\ffmpeg.exe.zst', 'wb').write(r.content)
@@ -51,11 +51,11 @@ def start():
 
     # Downloading Video...
     yt.streams.filter(res=video_quality).first().download(output_path='.temp', filename='temp_video.mp4')
-    print('[~] Video Download Progress: ')
+    print('[~] Video Download Progress: |')
 
     # Downloading Audio...
     yt.streams.filter(only_audio=True).first().download(output_path='.temp', filename='temp_audio.mp3')
-    print('[~] Audio Download Progress: ')
+    print('[~] Audio Download Progress: |')
     print()
 
     # Merging Video and Audio...
@@ -69,7 +69,7 @@ def start():
     input_video = ffmpeg.input(temp_video)
     input_audio = ffmpeg.input(temp_audio)
     ffmpeg.output(input_video, input_audio, output, acodec='copy', vcodec='copy').run(quiet=True, overwrite_output=True)
-    print('[~] Rendering Progress:      █████████████████████████████████████████| 100.0 %')
+    print('[~] Rendering Progress:      |████████████████████████████████████████| 100.0 %')
     print()
 
     # Deleting Temporary Files...
