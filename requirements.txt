@@ -2,3 +2,5 @@ ffmpeg-python
 pytest-shutil
 pytube
 zstd
+requests
+pathlib
