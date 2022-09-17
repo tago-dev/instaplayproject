@@ -147,10 +147,9 @@ cython_debug/
 # PyCharm
 .idea/
 
-#Other
+# Other
 .temp/
-Downloaded Musics/
-Downloaded Playlists/
-Downloaded Videos/
-Video & Channel Info/
+Videos/
+Musics/
+Playlists/
 dependencies/ffmpeg.exe.zst
