@@ -17,7 +17,7 @@ while continue_or_exit != '1':
 
     print('1. Video\n'
           '2. Music\n'
-          '3. Playlist\n')
+          '3. Playlist (Coming soon)\n')
     option = int(input('Option: '))
     options[option]()
 
