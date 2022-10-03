@@ -5,3 +5,4 @@ zstd
 requests
 pathlib
 termcolor
+music_tag
