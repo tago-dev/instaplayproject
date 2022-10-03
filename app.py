@@ -1,4 +1,4 @@
-from dependencies import download_video, download_music
+from dependencies import download_video, download_music, download_playlist
 from os import system as cmd
 from termcolor import cprint, colored
 
@@ -9,6 +9,7 @@ while continue_or_exit != '1':
     options = {
         1: download_video.start,
         2: download_music.start,
+        3: download_playlist.start,
     }
 
     coder_text = colored('Coder:', 'blue')
@@ -25,6 +26,7 @@ while continue_or_exit != '1':
 
     print('1. Video')
     print('2. Music')
+    print('3. Playlist')
     print()
     option = int(input('Option: '))
     options[option]()
