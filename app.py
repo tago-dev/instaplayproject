@@ -23,8 +23,8 @@ while continue_or_exit != '1':
     cprint('$ App: Universal YT Downloader', 'white', attrs=['bold'])
     print()
 
-    cprint('1. Video', 'white')
-    cprint('2. Music', 'white')
+    print('1. Video')
+    print('2. Music')
     print()
     option = int(input('Option: '))
     options[option]()
