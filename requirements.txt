@@ -4,3 +4,4 @@ pytube
 zstd
 requests
 pathlib
+termcolor
