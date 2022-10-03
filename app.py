@@ -1,5 +1,6 @@
 from dependencies import download_video, download_music
 from os import system as cmd
+from termcolor import cprint, colored
 
 continue_or_exit = None
 while continue_or_exit != '1':
@@ -10,12 +11,21 @@ while continue_or_exit != '1':
         2: download_music.start,
     }
 
+    coder_text = colored('Coder:', 'blue')
+    coder_github = colored('github.com/henrique-coder', 'blue')
+
     print()
-    print('$ App: Universal YT Downloader')
+    cprint(" _____     _                     _    __ __ _____    ____                _           _", 'red')
+    cprint("|  |  |___|_|_ _ ___ ___ ___ ___| |  |  |  |_   _|  |    \ ___ _ _ _ ___| |___ ___ _| |___ ___ ", 'red')
+    cprint(f"|  |  |   | | | | -_|  _|_ -| .'| |  |_   _| | |    |  |  | . | | | |   | | . | .'| . | -_|  _| {coder_text}", 'red')
+    cprint(f"|_____|_|_|_|\_/|___|_| |___|__,|_|    |_|   |_|    |____/|___|_____|_|_|_|___|__,|___|_ {coder_github}", 'red')
+    print()
+    cprint('$ App: Universal YT Downloader', 'white', attrs=['bold'])
     print()
 
-    print('1. Video\n'
-          '2. Music\n')
+    cprint('1. Video', 'white')
+    cprint('2. Music', 'white')
+    print()
     option = int(input('Option: '))
     options[option]()
 
