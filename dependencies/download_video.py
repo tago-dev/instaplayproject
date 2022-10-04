@@ -66,6 +66,7 @@ def start():
     makedirs('instaplayproject_dependencies', exist_ok=True)
     ffmpeg_exe_zst = Path(r'instaplayproject_dependencies\ffmpeg.exe.zst')
     if not ffmpeg_exe_zst.is_file():
+        cprint('[!] WARNING: The FFMPEG file will be downloaded ONLY the FIRST TIME you run this script! (Like now, please wait...)','red', attrs=['bold'])
         ffmpeg_url = 'https://drive.google.com/uc?export=download&id=16Ob9qv7uwLWqcMOwTOKeC9p52accn-wO'
         r = get(ffmpeg_url, allow_redirects=True)
         open(r'instaplayproject_dependencies\ffmpeg.exe.zst', 'wb').write(r.content)
