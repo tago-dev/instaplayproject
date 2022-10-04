@@ -10,7 +10,7 @@
 ##  Instaplay Project
 The project was created with the intention of making it easy to download videos, musics and playlists from the YouTube platform, in high definition and for any desired purpose.
 
-### Instalation
+### Manual Installation
 ```
 cd instaplayproject
 pip install -r requirements.txt
