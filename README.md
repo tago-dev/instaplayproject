@@ -1,4 +1,4 @@
-  <p align="center">
+<p align="center">
   <a href="https://codeload.github.com/Henrique-Coder/instaplayproject/zip/refs/heads/main"><img src="https://i.imgur.com/rWgX88K.png"></a>
 
 <p align="center">
