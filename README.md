@@ -33,5 +33,15 @@ python app.py
 |**Sample rate**|44100 Hz|
 |**Status**|&bull;|
 
+#### Instaplay - Playlist Download Function
+* Instaplay will download all the video within a playlist with the following information;
+
+|||
+| :------------: | :------------: |
+|**Codec**|MP3|
+|**Bit rate**|192 kbps|
+|**Sample rate**|44100 Hz|
+|**Status**|&bull;|
+
 #### Coder
 - [@Henrique-Coder](https://github.com/Henrique-Coder)
