@@ -1,8 +1,8 @@
   <p align="center">
-  <a href="https://github.com/Henrique-Coder/universal-yt-downloader/releases"><img src="https://i.imgur.com/rWgX88K.png"></a>
+  <a href="https://github.com/Henrique-Coder/instaplayproject/releases"><img src="https://i.imgur.com/rWgX88K.png"></a>
 
 <p align="center">
-  <a href="https://github.com/Henrique-Coder/universal-yt-downloader/releases"><img src="https://i.imgur.com/pBmQW2g.png"></a>
+  <a href="https://github.com/Henrique-Coder/instaplayproject/releases"><img src="https://i.imgur.com/pBmQW2g.png"></a>
 
 ##  Instaplay Project
 The project was created with the intention of making it easy to download videos, musics and playlists from the YouTube platform, in high definition and for any desired purpose.
