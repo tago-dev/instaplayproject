@@ -63,17 +63,17 @@ def start():
     yt = YouTube(url, on_progress_callback=on_progress)
 
     # Downloading FFMPEG...
-    ffmpeg_exe_zst = Path(r'dependencies\ffmpeg.exe.zst')
+    makedirs('instaplayproject_dependencies', exist_ok=True)
+    ffmpeg_exe_zst = Path(r'instaplayproject_dependencies\ffmpeg.exe.zst')
     if not ffmpeg_exe_zst.is_file():
-        cprint('[!] WARNING: The FFMPEG file will be downloaded ONLY the FIRST TIME you run this script! (Like now, please wait...)', 'red', attrs=['bold'])
         ffmpeg_url = 'https://drive.google.com/uc?export=download&id=16Ob9qv7uwLWqcMOwTOKeC9p52accn-wO'
         r = get(ffmpeg_url, allow_redirects=True)
-        open(r'dependencies\ffmpeg.exe.zst', 'wb').write(r.content)
+        open(r'instaplayproject_dependencies\ffmpeg.exe.zst', 'wb').write(r.content)
         print()
 
     # Extracting FFMPEG...
     makedirs('.temp', exist_ok=True)
-    with open(r'dependencies\ffmpeg.exe.zst', mode='rb') as fi:
+    with open(r'instaplayproject_dependencies\ffmpeg.exe.zst', mode='rb') as fi:
         with open(r'.temp\ffmpeg.exe', mode='wb') as fo:
             fo.write(ZSTD_uncompress(fi.read()))
     environ['PATH'] += pathsep + path.join(getcwd(), '.temp')
