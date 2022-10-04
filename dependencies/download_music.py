@@ -22,6 +22,14 @@ def start():
     cmd('cls')
     print()
 
+    cprint("     _ _   _       _                     _ _               _                           _", 'yellow', attrs=['bold'])
+    cprint(" ___|_| |_| |_ _ _| |_   ___ ___ _____  / | |_ ___ ___ ___|_|___ _ _ ___ ___ ___ ___ _| |___ ___", 'yellow', attrs=['bold'])
+    cprint("| . | |  _|   | | | . |_|  _| . |     |/ /|   | -_|   |  _| | . | | | -_|___|  _| . | . | -_|  _|", 'yellow', attrs=['bold'])
+    cprint("|_  |_|_| |_|_|___|___|_|___|___|_|_|_|_/ |_|_|___|_|_|_| |_|_  |___|___|   |___|___|___|___|_|", 'yellow', attrs=['bold'])
+    cprint("|___|                                                         |_|", 'yellow', attrs=['bold'])
+    print()
+    print()
+
     music_text3_examples = colored('Examples: ', 'red', attrs=['bold'])
     music_text4_links = colored('"https://www.youtube.com/watch?v=xXxXxXxXxXx" "https://youtu.be/xXxXxXxXxXx"', 'white', attrs=['bold'])
     music_text2_input = colored('YouTube - Music URL: ', 'red', attrs=['bold'])

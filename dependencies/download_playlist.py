@@ -2,7 +2,7 @@ from dependencies.functions import format_title
 from pytube import Playlist
 from os import system as cmd
 from os import makedirs
-from termcolor import colored
+from termcolor import cprint, colored
 
 
 def start():
@@ -16,6 +16,14 @@ def start():
     playlist_symbol_line = colored('-', 'white', attrs=['bold'])
 
     cmd('cls')
+    print()
+
+    cprint("     _ _   _       _                     _ _               _                           _", 'yellow', attrs=['bold'])
+    cprint(" ___|_| |_| |_ _ _| |_   ___ ___ _____  / | |_ ___ ___ ___|_|___ _ _ ___ ___ ___ ___ _| |___ ___", 'yellow', attrs=['bold'])
+    cprint("| . | |  _|   | | | . |_|  _| . |     |/ /|   | -_|   |  _| | . | | | -_|___|  _| . | . | -_|  _|", 'yellow', attrs=['bold'])
+    cprint("|_  |_|_| |_|_|___|___|_|___|___|_|_|_|_/ |_|_|___|_|_|_| |_|_  |___|___|   |___|___|___|___|_|", 'yellow', attrs=['bold'])
+    cprint("|___|                                                         |_|", 'yellow', attrs=['bold'])
+    print()
     print()
 
     playlist_text3_examples = colored('Example: ', 'red', attrs=['bold'])
