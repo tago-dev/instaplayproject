@@ -1,6 +1,7 @@
-![Logo](https://raw.githubusercontent.com/Henrique-Coder/universal-yt-downloader/main/img/logo-banner_format.png)
+<p align="center">
+  <a href="https://github.com/Henrique-Coder/universal-yt-downloader/releases"><img src="https://raw.githubusercontent.com/Henrique-Coder/universal-yt-downloader/main/logo.png"></a>
+</p>
 
 ## Universal YT Downloader
 
-O projeto foi criado com a intenção de facilitar o download de vídeos da plataforma YouTube, em alta definição e para qualquer finalidade desejada.
-
+The project was created with the intention of making it easy to download videos, musics and playlists from the YouTube platform, in high definition and for any desired purpose.
