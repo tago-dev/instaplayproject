@@ -1,8 +1,8 @@
   <p align="center">
-  <a href="https://github.com/Henrique-Coder/instaplayproject/releases"><img src="https://i.imgur.com/rWgX88K.png"></a>
+  <a href="https://codeload.github.com/Henrique-Coder/instaplayproject/zip/refs/heads/main"><img src="https://i.imgur.com/rWgX88K.png"></a>
 
 <p align="center">
-  <a href="https://github.com/Henrique-Coder/instaplayproject/releases"><img src="https://i.imgur.com/CIfTMDG.png"></a>
+  <a href="https://codeload.github.com/Henrique-Coder/instaplayproject/zip/refs/heads/main"><img src="https://i.imgur.com/CIfTMDG.png"></a>
 
 ##  Instaplay Project
 The project was created with the intention of making it easy to download videos, musics and playlists from the YouTube platform, in high definition and for any desired purpose.
