@@ -148,9 +148,9 @@ cython_debug/
 .idea/
 
 # Other
+*.zst
 .releases/
 .temp/
 Videos/
 Musics/
 Playlists/
-dependencies/ffmpeg.exe.zst
