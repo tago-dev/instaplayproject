@@ -148,9 +148,12 @@ cython_debug/
 .idea/
 
 # Other
-*.zst
 .releases/
 .temp/
+instaplayproject_dependencies/
 Videos/
 Musics/
 Playlists/
+*.zst
+*.ico
+compiler.py
