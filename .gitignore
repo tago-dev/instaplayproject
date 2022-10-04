@@ -148,6 +148,7 @@ cython_debug/
 .idea/
 
 # Other
+.releases/
 .temp/
 Videos/
 Musics/
