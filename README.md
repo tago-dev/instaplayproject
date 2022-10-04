@@ -9,9 +9,9 @@ The project was created with the intention of making it easy to download videos,
 
 ### Instalation
 ```
-cd instaplay
+cd instaplayproject
 pip install -r requirements.txt
-python app.py
+python instaplay.py
 ```
 
 #### Instaplay - Video Download Function
