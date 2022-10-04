@@ -1,8 +1,8 @@
-ffmpeg-python
-pytest-shutil
 pytube
+ffmpeg-python
+termcolor
 zstd
 requests
+pytest-shutil
 pathlib
-termcolor
 music_tag
