@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/Henrique-Coder/universal-yt-downloader/releases"><img src="https://raw.githubusercontent.com/Henrique-Coder/universal-yt-downloader/main/logo.png"></a>
+  <a href="https://github.com/Henrique-Coder/universal-yt-downloader/releases/final"><img src="https://raw.githubusercontent.com/Henrique-Coder/universal-yt-downloader/main/logo.png"></a>
 </p>
 
 ## Universal YT Downloader
