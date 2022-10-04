@@ -12,23 +12,26 @@ while continue_or_exit != '1':
         3: download_playlist.start,
     }
 
+    symbol_more_than = colored('>', 'blue', attrs=['bold'])
+
     coder_text = colored('Coder:', 'blue')
     coder_github = colored('github.com/henrique-coder', 'blue')
+    print()
+    cprint(" _____     _                     _    __ __ _____    ____                _           _", 'red', attrs=['bold'])
+    cprint("|  |  |___|_|_ _ ___ ___ ___ ___| |  |  |  |_   _|  |    \ ___ _ _ _ ___| |___ ___ _| |___ ___ ", 'red', attrs=['bold'])
+    cprint(f"|  |  |   | | | | -_|  _|_ -| .'| |  |_   _| | |    |  |  | . | | | |   | | . | .'| . | -_|  _| {coder_text}", 'red', attrs=['bold'])
+    cprint(f"|_____|_|_|_|\_/|___|_| |___|__,|_|    |_|   |_|    |____/|___|_____|_|_|_|___|__,|___|_ {coder_github}", 'red', attrs=['bold'])
+    print()
+    cprint('$ App: Universal YT Downloader', 'blue', attrs=['bold'])
+    print()
 
+    cprint('1. Video', 'white', attrs=['bold'])
+    cprint('2. Music', 'white', attrs=['bold'])
+    cprint('3. Playlist', 'white', attrs=['bold'])
     print()
-    cprint(" _____     _                     _    __ __ _____    ____                _           _", 'red')
-    cprint("|  |  |___|_|_ _ ___ ___ ___ ___| |  |  |  |_   _|  |    \ ___ _ _ _ ___| |___ ___ _| |___ ___ ", 'red')
-    cprint(f"|  |  |   | | | | -_|  _|_ -| .'| |  |_   _| | |    |  |  | . | | | |   | | . | .'| . | -_|  _| {coder_text}", 'red')
-    cprint(f"|_____|_|_|_|\_/|___|_| |___|__,|_|    |_|   |_|    |____/|___|_____|_|_|_|___|__,|___|_ {coder_github}", 'red')
-    print()
-    cprint('$ App: Universal YT Downloader', 'white', attrs=['bold'])
-    print()
-
-    print('1. Video')
-    print('2. Music')
-    print('3. Playlist')
-    print()
-    option = int(input('Option: '))
+    text1_option = colored(f'{symbol_more_than} Option: ', 'white', attrs=['bold'])
+    option = int(input(text1_option))
     options[option]()
 
-    continue_or_exit = input('[X] Press 1 to exit or any other key to continue ')
+    text_continue_or_exit = colored('[X] Press 1 to exit or any other key to continue ', 'blue', attrs=['bold'])
+    continue_or_exit = input(text_continue_or_exit)
