@@ -1,13 +1,10 @@
 from dependencies.functions import format_title
-from os import system as cmd, makedirs, environ, pathsep, path, getcwd
-from pytube import YouTube, extract
+from os import system as cmd, makedirs, environ
+from pytube import YouTube
 from pytube.cli import on_progress
 from ffmpeg import input as ffinput, output as ffoutput
-from shutil import rmtree
-from zstd import ZSTD_uncompress
-from requests import get
-from pathlib import Path
 from termcolor import cprint, colored
+from shutil import rmtree
 
 
 def start():
@@ -17,17 +14,18 @@ def start():
     video_symbol_tilde = colored('[~]', 'yellow', attrs=['bold'])
     video_text_beside1 = colored('Video Download Progress: ', 'white', attrs=['bold'])
     video_text_beside2 = colored('Audio Download Progress: ', 'white', attrs=['bold'])
-    video_text_beside3 = colored('Rendering Progress:      ', 'white', attrs=['bold'])
+    video_text_beside3 = colored('Quick rendering in progress...', 'white', attrs=['bold'])
+    video_text_beside4 = colored('Quick rendering finished!', 'white', attrs=['bold'])
 
     video_symbol_minus = colored('[-]', 'yellow', attrs=['bold'])
-    video_text_beside4 = colored('Temporary Files Deleted!', 'white', attrs=['bold'])
+    video_text_beside6 = colored('Temporary Files Deleted!', 'white', attrs=['bold'])
 
     video_symbol_plus = colored('[+]', 'yellow', attrs=['bold'])
     video_text_beside5 = colored('The music was downloaded successfully!', 'white', attrs=['bold'])
 
     cmd('cls')
-    print()
 
+    print()
     cprint("     _ _   _       _                     _ _               _                           _", 'yellow', attrs=['bold'])
     cprint(" ___|_| |_| |_ _ _| |_   ___ ___ _____  / | |_ ___ ___ ___|_|___ _ _ ___ ___ ___ ___ _| |___ ___", 'yellow', attrs=['bold'])
     cprint("| . | |  _|   | | | . |_|  _| . |     |/ /|   | -_|   |  _| | . | | | -_|___|  _| . | . | -_|  _|", 'yellow', attrs=['bold'])
@@ -62,23 +60,7 @@ def start():
 
     yt = YouTube(url, on_progress_callback=on_progress)
 
-    # Downloading FFMPEG...
     userprofile_name = environ['userprofile']
-    makedirs(fr'{userprofile_name}\AppData\Local\Instaplay Project\dependencies', exist_ok=True)
-    ffmpeg_exe_zst = Path(fr'{userprofile_name}\AppData\Local\Instaplay Project\dependencies\ffmpeg.exe.zst')
-    if not ffmpeg_exe_zst.is_file():
-        cprint('[!] WARNING: The FFMPEG file will be downloaded ONLY the FIRST TIME you run this script! (Like now, please wait...)','red', attrs=['bold'])
-        ffmpeg_url = 'https://drive.google.com/uc?export=download&id=16Ob9qv7uwLWqcMOwTOKeC9p52accn-wO'
-        r = get(ffmpeg_url, allow_redirects=True)
-        open(fr'{userprofile_name}\AppData\Local\Instaplay Project\dependencies\ffmpeg.exe.zst', 'wb').write(r.content)
-        print()
-
-    # Extracting FFMPEG...
-    makedirs(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp', exist_ok=True)
-    with open(fr'{userprofile_name}\AppData\Local\Instaplay Project\dependencies\ffmpeg.exe.zst', mode='rb') as fi:
-        with open(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp\ffmpeg.exe', mode='wb') as fo:
-            fo.write(ZSTD_uncompress(fi.read()))
-    environ['PATH'] += pathsep + path.join(getcwd(), fr'{userprofile_name}\AppData\Local\Instaplay Project\temp')
 
     # Formatting the title...
     video_title_mp4 = format_title(yt.title) + '.mp4'
@@ -101,13 +83,14 @@ def start():
 
     input_video = ffinput(temp_video)
     input_audio = ffinput(temp_audio)
+    print(f'{video_symbol_tilde} {video_text_beside3}')
     ffoutput(input_video, input_audio, output, acodec='copy', vcodec='copy').run(quiet=True, overwrite_output=True)
-    print(f'{video_symbol_tilde} {video_text_beside3}|████████████████████████████████████████| 100.0%')
+    print(f'{video_symbol_tilde} {video_text_beside4}')
     print()
 
     # Deleting Temporary Files...
     rmtree(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp', ignore_errors=True)
-    print(f'{video_symbol_minus} {video_text_beside4}')
+    print(f'{video_symbol_minus} {video_text_beside6}')
     print()
 
     print(f'{video_symbol_plus} {video_text_beside5}')
