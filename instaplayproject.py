@@ -6,11 +6,7 @@ continue_or_exit = None
 while continue_or_exit != '1':
     cmd('cls')
 
-    options = {
-        1: download_video.start,
-        2: download_music.start,
-        3: download_playlist.start,
-    }
+    options = { 1: 'download_video.start', 2: 'download_music.start', 3: 'download_playlist.start'}
 
     symbol_more_than = colored('>', 'blue', attrs=['bold'])
 
