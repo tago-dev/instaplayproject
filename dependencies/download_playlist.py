@@ -1,6 +1,6 @@
 from dependencies.functions import format_title
 from pytube import Playlist, YouTube
-from os import system as cmd, makedirs, environ
+from os import system as cmd, makedirs, environ, path, pathsep, getcwd
 from shutil import rmtree
 from requests import get
 from music_tag import load_file
@@ -18,8 +18,8 @@ def start():
     playlist_symbol_line = colored('-', 'white', attrs=['bold'])
 
     cmd('cls')
-    print()
 
+    print()
     cprint("     _ _   _       _                     _ _               _                           _", 'yellow', attrs=['bold'])
     cprint(" ___|_| |_| |_ _ _| |_   ___ ___ _____  / | |_ ___ ___ ___|_|___ _ _ ___ ___ ___ ___ _| |___ ___", 'yellow', attrs=['bold'])
     cprint("| . | |  _|   | | | . |_|  _| . |     |/ /|   | -_|   |  _| | . | | | -_|___|  _| . | . | -_|  _|", 'yellow', attrs=['bold'])
@@ -37,17 +37,24 @@ def start():
 
     finished_downloads_counter = 0
 
+    userprofile_name = environ['userprofile']
+
     playlist = Playlist(url)
     for video in playlist.videos:
         formatted_playlist_title = format_title(playlist.title)
-        makedirs(fr'Playlists\{formatted_playlist_title}', exist_ok=True)
-        playlist_path = fr'Playlists\{formatted_playlist_title}'
+        makedirs(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp', exist_ok=True)
         video_title_in_playlist = format_title(video.title)
-        video.streams.filter(only_audio=True).first().download(output_path=playlist_path, filename=video_title_in_playlist + '.mp3')
+        video.streams.filter(only_audio=True).first().download(output_path=fr'{userprofile_name}\AppData\Local\Instaplay Project\temp', filename=video_title_in_playlist + '.mp3')
+
+        # Convert to MP3
+        userprofile_name = environ['userprofile']
+        environ['PATH'] += pathsep + path.join(getcwd(), fr'{userprofile_name}\AppData\Local\Instaplay Project\dependencies')
+        cmd_formatted_title = format_title(video_title_in_playlist) + '.mp3'
+        makedirs(fr'Playlists\{formatted_playlist_title}', exist_ok=True)
+        cmd(fr'ffmpeg -i "%userprofile%\AppData\Local\Instaplay Project\temp\{cmd_formatted_title}" -b:a 128K -vn "Playlists\{formatted_playlist_title}\{cmd_formatted_title}" -y -loglevel quiet')
 
         # Adding cover...
         userprofile_name = environ['userprofile']
-        makedirs(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp', exist_ok=True)
         r = get(fr'https://img.youtube.com/vi/{video.video_id}/maxresdefault.jpg', allow_redirects=True)
         open(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp\{video_title_in_playlist}.jpg', 'wb').write(r.content)
 
