@@ -42,7 +42,7 @@ python instaplayproject.py
 |||
 | :------------: | :------------: |
 |**Codec**|MP3|
-|**Bit rate**|192 kbps|
+|**Bit rate**|320 kbps|
 |**Sample rate**|44100 Hz|
 |**Status**|&bull;|
 
