@@ -1,9 +1,32 @@
 from dependencies import download_video, download_music, download_playlist
-from os import system as cmd
+from os import system as cmd, makedirs, environ, path, pathsep, getcwd, remove
 from termcolor import cprint, colored
+from pathlib import Path
+from zstd import ZSTD_uncompress
+from requests import get
 
 continue_or_exit = None
 while continue_or_exit != '1':
+    cmd('cls')
+
+    # Downloading FFMPEG...
+    print()
+    userprofile_name = environ['userprofile']
+    makedirs(fr'{userprofile_name}\AppData\Local\Instaplay Project\dependencies', exist_ok=True)
+    ffmpeg_exe = Path(fr'{userprofile_name}\AppData\Local\Instaplay Project\dependencies\ffmpeg.exe')
+
+    if not ffmpeg_exe.is_file():
+        cprint('[!] WARNING: The FFMPEG file will be downloaded ONLY the FIRST TIME you run this script! (Like now, please wait...)','red', attrs=['bold'])
+        ffmpeg_url = 'https://drive.google.com/uc?export=download&id=16Ob9qv7uwLWqcMOwTOKeC9p52accn-wO'
+        r = get(ffmpeg_url, allow_redirects=True)
+        open(fr'{userprofile_name}\AppData\Local\Instaplay Project\dependencies\ffmpeg.exe.zst', 'wb').write(r.content)
+
+        # Extracting FFMPEG...
+        with open(fr'{userprofile_name}\AppData\Local\Instaplay Project\dependencies\ffmpeg.exe.zst', mode='rb') as fi:
+            with open(fr'{userprofile_name}\AppData\Local\Instaplay Project\dependencies\ffmpeg.exe', mode='wb') as fo:
+                fo.write(ZSTD_uncompress(fi.read()))
+        remove(fr'{userprofile_name}\AppData\Local\Instaplay Project\dependencies\ffmpeg.exe.zst')
+    environ['PATH'] += pathsep + path.join(getcwd(), fr'{userprofile_name}\AppData\Local\Instaplay Project\dependencies')
     cmd('cls')
 
     options = {
