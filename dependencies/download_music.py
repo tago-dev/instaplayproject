@@ -1,5 +1,5 @@
 from dependencies.functions import format_title
-from os import system as cmd, makedirs
+from os import system as cmd, makedirs, environ
 from pytube import YouTube, extract
 from pytube.cli import on_progress
 from requests import get
@@ -46,19 +46,21 @@ def start():
     print()
 
     # Adding cover...
-    makedirs('.temp', exist_ok=True)
-    yt_fomatted_title = format_title(YouTube(url).title)
+    userprofile_name = environ['userprofile']
+    makedirs(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp', exist_ok=True)
+    yt_formatted_title = format_title(YouTube(url).title)
     yt_id = extract.video_id(url)
-    yt_thumbnail = f'https://img.youtube.com/vi/{yt_id}/maxresdefault.jpg'
-    r = get(yt_thumbnail, allow_redirects=True)
-    open(f'.temp\\{yt_fomatted_title}.jpg', 'wb').write(r.content)
+    r = get(fr'https://img.youtube.com/vi/{yt_id}/maxresdefault.jpg', allow_redirects=True)
+    open(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp\{yt_formatted_title}.jpg', 'wb').write(r.content)
 
-    f = load_file(f'Musics\\{yt_fomatted_title}.mp3')
-    f['artwork'] = open(f'.temp\\{yt_fomatted_title}.jpg', 'rb').read()
+    f = load_file(fr'Musics\{yt_formatted_title}.mp3')
+    f['artwork'] = open(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp\{yt_formatted_title}.jpg', 'rb').read()
+    f['tracktitle'] = yt_formatted_title
+    f['artist'] = yt.author
     f.save()
 
     # Deleting Temporary Files...
-    rmtree('.temp', ignore_errors=True)
+    rmtree(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp', ignore_errors=True)
     print(f'{music_symbol_minus} {music_text_beside2}')
     print()
 
