@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/Henrique-Coder/instaplayproject/releases/download/1.2.0/InstaplayProject-win-v1.2.0.exe"><img src="https://i.imgur.com/rWgX88K.png"></a>
+  <a href="https://github.com/Henrique-Coder/instaplayproject/releases/download/1.2.0/InstaplayProject-win-v1.2.0.exe"><img src="https://i.imgur.com/AlmiZYH.png"></a>
 
 <p align="center">
   <a href="https://github.com/Henrique-Coder/instaplayproject/releases/download/1.2.0/InstaplayProject-win-v1.2.0.exe"><img src="https://i.imgur.com/CIfTMDG.png"></a>
