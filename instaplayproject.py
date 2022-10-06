@@ -5,6 +5,7 @@ from pathlib import Path
 from zstd import ZSTD_uncompress
 from requests import get
 
+
 continue_or_exit = None
 while continue_or_exit != '1':
     cmd('cls')
