@@ -32,7 +32,7 @@ python instaplayproject.py
 |||
 | :------------: | :------------: |
 |**Codec**|MP3|
-|**Bit rate**|320 kbps|
+|**Bit rate**|128 kbps|
 |**Sample rate**|44100 Hz|
 |**Metadata**|Artist, Tracktitle and Artwork|
 |**Status**|&bull;|
@@ -43,7 +43,7 @@ python instaplayproject.py
 |||
 | :------------: | :------------: |
 |**Codec**|MP3|
-|**Bit rate**|320 kbps|
+|**Bit rate**|128 kbps|
 |**Sample rate**|44100 Hz|
 |**Metadata**|Artist, Tracktitle and Artwork|
 |**Status**|&bull;|
