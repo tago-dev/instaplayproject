@@ -8,6 +8,8 @@ from music_tag import load_file
 from termcolor import cprint, colored
 
 
+
+
 def start():
 
     music_symbol_tilde = colored('[~]', 'yellow', attrs=['bold'])
@@ -57,18 +59,20 @@ def start():
     print(f'{music_symbol_tilde} {music_text_beside5}')
     print()
 
-    # Adding cover...
+    # Adding metadata...
     userprofile_name = environ['userprofile']
     yt_formatted_title = format_title(YouTube(url).title)
     makedirs(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp', exist_ok=True)
     yt_id = extract.video_id(url)
     r = get(fr'https://img.youtube.com/vi/{yt_id}/maxresdefault.jpg', allow_redirects=True)
     open(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp\{yt_formatted_title}.jpg', 'wb').write(r.content)
+    publish_year = str(yt.publish_date).split('-')[0]
 
     f = load_file(fr'Musics\{yt_formatted_title}.mp3')
     f['artwork'] = open(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp\{yt_formatted_title}.jpg', 'rb').read()
     f['tracktitle'] = yt_formatted_title
     f['artist'] = yt.author
+    f['year'] = publish_year
     f.save()
 
     # Deleting Temporary Files...

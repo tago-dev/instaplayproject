@@ -53,16 +53,18 @@ def start():
         makedirs(fr'Playlists\{formatted_playlist_title}', exist_ok=True)
         cmd(fr'ffmpeg -i "%userprofile%\AppData\Local\Instaplay Project\temp\{cmd_formatted_title}" -b:a 128K -vn "Playlists\{formatted_playlist_title}\{cmd_formatted_title}" -y -loglevel quiet')
 
-        # Adding cover...
+        # Adding metadata...
         userprofile_name = environ['userprofile']
         r = get(fr'https://img.youtube.com/vi/{video.video_id}/maxresdefault.jpg', allow_redirects=True)
         open(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp\{video_title_in_playlist}.jpg', 'wb').write(r.content)
+        publish_year = str(video.publish_date).split('-')[0]
 
         yt = YouTube(url)
         f = load_file(fr'Playlists\{formatted_playlist_title}\{video_title_in_playlist}.mp3')
         f['artwork'] = open(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp\{video_title_in_playlist}.jpg', 'rb').read()
         f['tracktitle'] = video_title_in_playlist
         f['artist'] = yt.author
+        f['year'] = publish_year
         f.save()
 
         # Video download counting...
