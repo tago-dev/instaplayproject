@@ -41,21 +41,18 @@ def start():
     url = input(video_text2_input)
     print()
 
-    resolutions = {
-        1: '1080p',
-        2: '720p',
-        3: '480p',
-        4: '360p',
-        5: '240p',
-        6: '144p'
-    }
+    # Checking available video resolutions
+    yt = YouTube(url)
+    available_resolutions = list(set(stream.resolution for stream in yt.streams if stream.resolution is not None))
+    available_resolutions.sort(key=lambda x: int(x[:-1]), reverse=True)
+    available_resolutions = {k: v for k, v in enumerate(available_resolutions, start=1)}
 
     video_text5_resolutions = colored('Resolutions: ', 'red', attrs=['bold'])
     video_text6_option = colored('Option: ', 'red', attrs=['bold'])
     video_text7_option = colored(f'{video_symbol_more_than} {video_text6_option}', 'red', attrs=['bold'])
-    print(video_text5_resolutions + '   '.join([f'{k}. {v}' for k, v in resolutions.items()]))
+    print(video_text5_resolutions + '   '.join([f'{k}. {v}' for k, v in available_resolutions.items()]))
     video_quality = int(input(video_text7_option))
-    video_quality = resolutions[video_quality]
+    video_quality = available_resolutions[video_quality]
     print()
 
     yt = YouTube(url, on_progress_callback=on_progress)
