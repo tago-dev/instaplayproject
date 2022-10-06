@@ -60,7 +60,7 @@ def start():
 
         yt = YouTube(url)
         f = load_file(fr'Playlists\{formatted_playlist_title}\{video_title_in_playlist}.mp3')
-        f['artwork'] = open(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp\{video_title_in_playlist}.jpg','rb').read()
+        f['artwork'] = open(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp\{video_title_in_playlist}.jpg', 'rb').read()
         f['tracktitle'] = video_title_in_playlist
         f['artist'] = yt.author
         f.save()
