@@ -20,11 +20,11 @@ python instaplayproject.py
 #### Instaplay - Video Download Function
 * Instaplay will be able to download videos from YouTube in the following information;
 
-||||||||||
-| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
-|**Quality**|144p|240p|360p|480p|720p|1080p|1440p|2160p|
-|**Resolution**|30fps|30fps|30fps|30fps|60fps|60fps|60fps|60fps|
-|**Status**|&bull;|&bull;|&bull;|&bull;|&bull;|&bull;|&times;|&times;|
+|||||||||||
+| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
+|**Quality**|144p|240p|360p|480p|720p|1080p|1440p|2160p|4320p|
+|**Resolution**|30fps|30fps|30fps|30fps|60fps|60fps|60fps|60fps|60fps|
+|**Status**|&bull;|&bull;|&bull;|&bull;|&bull;|&bull;|&bull;|&bull;|&bull;|
 
 #### Instaplay - Audio Download Function
 * Instaplay will download music from YouTube in the following information;
