@@ -17,9 +17,6 @@ def start():
     video_text_beside3 = colored('Quick rendering in progress...', 'white', attrs=['bold'])
     video_text_beside4 = colored('Quick rendering finished!', 'white', attrs=['bold'])
 
-    video_symbol_minus = colored('[-]', 'yellow', attrs=['bold'])
-    video_text_beside6 = colored('Temporary Files Deleted!', 'white', attrs=['bold'])
-
     video_symbol_plus = colored('[+]', 'yellow', attrs=['bold'])
     video_text_beside5 = colored('The music was downloaded successfully!', 'white', attrs=['bold'])
 
@@ -87,8 +84,6 @@ def start():
 
     # Deleting Temporary Files...
     rmtree(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp', ignore_errors=True)
-    print(f'{video_symbol_minus} {video_text_beside6}')
-    print()
 
     print(f'{video_symbol_plus} {video_text_beside5}')
     print()
