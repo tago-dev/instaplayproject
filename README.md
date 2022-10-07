@@ -24,7 +24,7 @@ python instaplayproject.py
 | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
 |**Quality**|144p|240p|360p|480p|720p|1080p|1440p|2160p|4320p|
 |**Resolution**|30fps|30fps|30fps|30fps|60fps|60fps|60fps|60fps|60fps|
-|**Status**|&bull;|&bull;|&bull;|&bull;|&bull;|&bull;|&bull;|&bull;|&bull;|
+|**Status**|✓|✓|✓|✓|✓|✓|✓|✓|✓|
 
 #### Instaplay - Audio Download Function
 * Instaplay will download music from YouTube in the following information;
@@ -35,7 +35,7 @@ python instaplayproject.py
 |**Bit rate**|128 kbps|
 |**Sample rate**|44100 Hz|
 |**Metadata**|Artist, tracktitle, artwork, year, albumartist and genre|
-|**Status**|&bull;|
+|**Status**|✓|
 
 #### Instaplay - Playlist Download Function
 * Instaplay will download all the video within a playlist with the following information;
@@ -46,7 +46,7 @@ python instaplayproject.py
 |**Bit rate**|128 kbps|
 |**Sample rate**|44100 Hz|
 |**Metadata**|Artist, tracktitle, artwork, year, albumartist and genre|
-|**Status**|&bull;|
+|**Status**|✓|
 
 #### Coder
 - [@Henrique-Coder](https://github.com/Henrique-Coder)
