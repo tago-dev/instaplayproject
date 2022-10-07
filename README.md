@@ -1,11 +1,11 @@
 <p align="center">
-  <a href="https://github.com/Henrique-Coder/instaplayproject/releases/download/1.3.1/InstaplayProject-win-v1.3.1.exe"><img src="https://i.imgur.com/AlmiZYH.png"></a>
+  <a href="https://github.com/Henrique-Coder/instaplayproject/releases/download/1.3.1/InstaplayProject-win-v1.3.1.exe"><img src="https://raw.githubusercontent.com/Henrique-Coder/instaplayproject/main/images/instaplayproject-banner.png"></a>
 
 <p align="center">
-  <a href="https://github.com/Henrique-Coder/instaplayproject/releases/download/1.3.1/InstaplayProject-win-v1.3.1.exe"><img src="https://i.imgur.com/CIfTMDG.png"></a>
+  <a href="https://github.com/Henrique-Coder/instaplayproject/releases/download/1.3.1/InstaplayProject-win-v1.3.1.exe"><img src="https://raw.githubusercontent.com/Henrique-Coder/instaplayproject/main/images/instaplayproject-presentation-mockup.png"></a>
 
 <p align="center">
-  <a href="https://github.com/Henrique-Coder/instaplayproject/releases/download/1.3.1/InstaplayProject-win-v1.3.1.exe"><img src="https://i.imgur.com/LpT2Yr2.png"></a>
+  <a href="https://github.com/Henrique-Coder/instaplayproject/releases/download/1.3.1/InstaplayProject-win-v1.3.1.exe"><img src="https://raw.githubusercontent.com/Henrique-Coder/instaplayproject/main/images/downloadcloud-image.png"></a>
 
 ##  Instaplay Project
 The project was created with the intention of making it easy to download videos, musics and playlists from the YouTube platform, in high definition and for any desired purpose.
