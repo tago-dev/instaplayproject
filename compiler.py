@@ -4,7 +4,7 @@ from os import system as cmd
 filename = 'instaplayproject.py'
 name = 'InstaplayProject'
 working_os = 'win'
-version = '1.3.0'
+version = '1.3.1'
 icon = 'icon.ico'
 data = 'dependencies/*;.'
 
