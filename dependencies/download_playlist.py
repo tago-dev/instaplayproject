@@ -65,6 +65,9 @@ def start():
         f['tracktitle'] = video_title_in_playlist
         f['artist'] = yt.author
         f['year'] = publish_year
+        f['album'] = formatted_playlist_title
+        f['albumartist'] = yt.author
+        f['genre'] = 'Music'
         f.save()
 
         # Video download counting...
@@ -76,12 +79,7 @@ def start():
         print(f'{playlist_symbol_tilde} {playlist_text_beside1}100.0% {playlist_symbol_line} {counting_progress_and_total_videos} {playlist_symbol_line} Music: {playlist_formatted_video_title_colored}')
 
     # Deleting Temporary Files...
-    playlist_symbol_minus = colored('[-]', 'yellow', attrs=['bold'])
-    playlist_text_beside3 = colored('Temporary Files Deleted!', 'white', attrs=['bold'])
     rmtree(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp', ignore_errors=True)
-    print()
-
-    print(f'{playlist_symbol_minus} {playlist_text_beside3}')
     print()
 
     print(f'{playlist_symbol_plus} {playlist_text_beside2}')
