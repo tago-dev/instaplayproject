@@ -1,6 +1,6 @@
 from dependencies.functions import format_title
-from pytube import Playlist, YouTube
 from os import system as cmd, makedirs, environ, path, pathsep, getcwd
+from pytube import Playlist, YouTube, extract
 from shutil import rmtree
 from requests import get
 from music_tag import load_file
