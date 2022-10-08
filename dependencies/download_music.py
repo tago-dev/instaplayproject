@@ -6,8 +6,8 @@ from requests import get
 from shutil import rmtree
 from music_tag import load_file
 from termcolor import cprint, colored
-
-
+from datetime import datetime
+from codecs import open
 
 
 def start():
@@ -61,7 +61,7 @@ def start():
     yt_formatted_title = format_title(YouTube(url).title)
     makedirs(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp', exist_ok=True)
     yt_id = extract.video_id(url)
-    r = get(fr'https://img.youtube.com/vi/{yt_id}/maxresdefault.jpg', allow_redirects=True)
+    r = get(f'https://img.youtube.com/vi/{yt_id}/maxresdefault.jpg', allow_redirects=True)
     open(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp\{yt_formatted_title}.jpg', 'wb').write(r.content)
     publish_year = str(yt.publish_date).split('-')[0]
 
@@ -73,6 +73,61 @@ def start():
     f['albumartist'] = yt.author
     f['genre'] = 'Music'
     f.save()
+
+    # Generating download log in MD format...
+    makedirs(fr'{userprofile_name}\AppData\Local\Instaplay Project\logs\.md', exist_ok=True)
+    with open(fr'{userprofile_name}\AppData\Local\Instaplay Project\logs\.md\{format_title(yt.title)}.md', 'w', 'utf-8') as f:
+        m, s = divmod(yt.length, 60)
+        h, m = divmod(m, 60)
+
+        f.write(f'# **Music: {format_title(yt.title)}**\n\n')
+        f.write(f'![Video Thumbnail](https://img.youtube.com/vi/{extract.video_id(url)}/maxresdefault.jpg)\n\n')
+        f.write(f'### **General Info**\n')
+        f.write(f'* **Date:** {datetime.now().strftime("%Y/%m/%d")} (YYY/MM/DD)\n')
+        f.write(f'* **Time:** {datetime.now().strftime("%H:%M:%S")} (H/M/S)\n\n')
+        f.write(f'### **YouTube Info**\n')
+        f.write(f'* **Subtitles:** {yt.captions}\n')
+        f.write(f'* **Age Restriction:** {yt.age_restricted}\n')
+        f.write(f'* **Rating:** {yt.rating}\n\n')
+        f.write(f'### **Video Info**\n')
+        f.write(f'* **URL:** {url}\n')
+        f.write(f'* **Thumbnail URL:** https://img.youtube.com/vi/{extract.video_id(url)}/maxresdefault.jpg\n')
+        f.write(f'* **Publish Date:** {yt.publish_date} (YYY/MM/DD) (H/M/S)\n'.replace('-', '/'))
+        f.write(f'* **Title:** {yt.title}\n')
+        f.write(f'* **Channel:** {yt.author}\n')
+        f.write(f'* **Views:** {yt.views:,}\n'.replace(',', '.'))
+        f.write(f'* **Duration:** {h:d}h, {m}m and {s}s\n')
+        f.write(f'* **Description:** \n\n{yt.description}\n\n')
+        f.write(f"* ### **Coder's GitHub:** https://github.com/Henrique-Coder\n")
+        f.write(f"* ### **Project's Repository:** https://github.com/Henrique-Coder/instaplayproject\n")
+        f.close()
+
+    # Generating download log in TXT format...
+    makedirs(fr'{userprofile_name}\AppData\Local\Instaplay Project\logs\.txt', exist_ok=True)
+    with open(fr'{userprofile_name}\AppData\Local\Instaplay Project\logs\.txt\{format_title(yt.title)}.txt', 'w', 'utf-8') as f:
+        m, s = divmod(yt.length, 60)
+        h, m = divmod(m, 60)
+
+        f.write(f'Music: {format_title(yt.title)}\n\n')
+        f.write(f'General Info\n')
+        f.write(f'Date: {datetime.now().strftime("%Y/%m/%d")} (YYY/MM/DD)\n')
+        f.write(f'Time: {datetime.now().strftime("%H:%M:%S")} (H/M/S)\n\n')
+        f.write(f'YouTube Info\n')
+        f.write(f'Subtitles: {yt.captions}\n')
+        f.write(f'Age Restriction: {yt.age_restricted}\n')
+        f.write(f'Rating: {yt.rating}\n\n')
+        f.write(f'Video Info\n')
+        f.write(f'URL: {url}\n')
+        f.write(f'Thumbnail URL: https://img.youtube.com/vi/{extract.video_id(url)}/maxresdefault.jpg\n')
+        f.write(f'Publish Date: {yt.publish_date} (YYY/MM/DD) (H/M/S)\n'.replace('-', '/'))
+        f.write(f'Title: {yt.title}\n')
+        f.write(f'Channel: {yt.author}\n')
+        f.write(f'Views: {yt.views:,}\n'.replace(',', '.'))
+        f.write(f'Duration: {h:d}h, {m}m and {s}s\n')
+        f.write(f'Description: \n\n{yt.description}\n\n')
+        f.write(f"Coder's GitHub: https://github.com/Henrique-Coder\n")
+        f.write(f"Project's Repository: https://github.com/Henrique-Coder/instaplayproject\n")
+        f.close()
 
     # Deleting Temporary Files...
     rmtree(fr'{userprofile_name}\AppData\Local\Instaplay Project\temp', ignore_errors=True)
